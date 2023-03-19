@@ -1,15 +1,13 @@
 package games.crusader;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-public class DijkstraShortestPath<T> implements ShortestPath<T> {
-
-    public int[][] findAllShortestPaths(int sourceIndex, Node<T>[] nodes, int[][] edges) {
-        int[][] paths = new int[nodes.length][nodes.length];
-        return paths;
-    }
+public class BellmanFord<T> implements ShortestPath<T>{
     @Override
-    public List<Node> findShortestPath(int sourceIndex, int targetIndex,Node<T>[] nodes, Integer[][] edges) {
+    public List<Node> findShortestPath(int sourceIndex, int targetIndex, Node<T>[] nodes, Integer[][] edges) {
         // Keep track of shortest distance between source and each node.  Track that here:
         int[] minDistancesFromSource = new int[nodes.length];
         // When minimumDistance is found for node, track its predecessor in shortestPath
@@ -60,6 +58,4 @@ public class DijkstraShortestPath<T> implements ShortestPath<T> {
         System.out.println("Minimum Distance: " + minDistancesFromSource[targetIndex]);
         return shortestPath;
     }
-
-
 }
